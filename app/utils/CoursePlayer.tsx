@@ -14,7 +14,7 @@ const CoursePlayer: FC<Props> = ({ title, videoUrl }) => {
 
   useEffect(() => {
     axios
-      .post(`http://localhost:8000/api/v1/getVdoCipherOTP`, {
+      .post(`https://smart-study-server-s4g2.vercel.app/api/v1/getVdoCipherOTP`, {
         videoId: videoUrl,
       })
       .then((res) => {
