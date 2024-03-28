@@ -6,7 +6,16 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  scroll-behavior: smooth;
 }
+.course-container {
+  /* Set the desired height for the container */
+  height: 100vh; /* You can adjust this value as needed */
+  /* Optionally, add overflow to allow scrolling if content exceeds the height */
+  overflow-y: auto;
+}
+
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -16,18 +25,141 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+
+/* Create a fixed width for the scrollbar */
+::-webkit-scrollbar {
+  width: 10px; /* Adjust as needed */
+  
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent; /* or any color you prefer */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #7c63c9; /* color of the scrollbar handle */
+  border-radius: 5px; /* make it rounded */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #765fb9  /* darker color on hover */
+}
+/* chrom,safari,Edge,Opera */
+
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+}
+
+.hero_animation {
+  background-image: linear-gradient(
+    147.92deg,
+    hsla(239, 76%, 53%, 0.456) 10.41%,
+    hsla(0, 0%, 100%, 0) 89.25%
+  );
+  animation: changeBackgroundColor 8s infinite alternate;
+}
+
+.text_animation {
+  background: linear-gradient(
+    147.92deg,
+    hsla(239, 76%, 53%, 0.456) 10.41%,
+    hsla(0, 0%, 100%, 0) 89.25%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  /* color: transparent; */
+  animation: changeOpacity 10s infinite alternate;
+}
+
+@keyframes changeOpacity {
+   0%, 100% {
+    color: transparent;
+    opacity: 1;
+  }
+  16.67% {
+    color: #ff0000; /* Change to your desired color */
+    opacity: 0.9;
+  }
+  33.33% {
+    color: #00ff00; /* Change to your desired color */
+    opacity: 0.8;
+  }
+  50% {
+    color: #0000ff; /* Change to your desired color */
+    opacity: 0.6;
+  }
+  66.67% {
+    color: #ffff00; /* Change to your desired color */
+    opacity: 0.5;
+  }
+  83.33% {
+    color: #ff00ff; /* Change to your desired color */
+    opacity: 0.4;
   }
 }
+
+
+@keyframes changeBackgroundColor {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  16.67% {
+    opacity: 0.9;
+  }
+  33.33% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  66.67% {
+    opacity: 0.5;
+  }
+  83.33% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px);
+  }
+  40% {
+    transform: translate(2px);
+  }
+  60% {
+    transform: translate(-2px);
+  }
+  80% {
+    transform: translate(2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+
+
+.text-gradient-light {
+  background: linear-gradient(90deg, #ff7eb9, #ffaa85); /* Applies a linear gradient background */
+  -webkit-background-clip: text; /* Clips the background to the text */
+  background-clip: text; /* Clips the background to the text */
+  color: transparent; /* Makes the text transparent */
+}
+
